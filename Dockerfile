@@ -9,11 +9,13 @@ ARG GOPROXY=""
 
 ENV GOPROXY ${GOPROXY}
 
-WORKDIR ./
+COPY . /go/src/github.com/lazzman/NeverIdle
+
+WORKDIR /go/src/github.com/lazzman/NeverIdle
 
 RUN set -ex \
-    && apk add git build-base bash \
-    && ./build.sh \
+    && apk add git build-base bash
+RUN ./build.sh \
     && mv ./build/app-* /go/bin/app
 
 # multi-stage builds to create the final image
