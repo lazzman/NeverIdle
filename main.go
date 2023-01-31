@@ -22,7 +22,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	fmt.Println("NeverIdle", Version, "- Getting worse from here.")
 	fmt.Println("Platform:", runtime.GOOS, ",", runtime.GOARCH, ",", runtime.Version())
-	fmt.Println("GitHub: https://github.com/layou233/NeverIdle")
+	fmt.Println("GitHub: https://github.com/lazzman/NeverIdle")
 
 	flag.Parse()
 	nothingEnabled := true
