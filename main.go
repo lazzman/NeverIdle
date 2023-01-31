@@ -13,9 +13,10 @@ import (
 const Version = "0.1"
 
 var (
-	FlagCPU     = flag.Duration("c", 0, "Interval for CPU waste")
-	FlagMemory  = flag.Int("m", 0, "GiB of memory waste")
-	FlagNetwork = flag.Duration("n", 0, "Interval for network speed test")
+	//FlagCPU           = flag.Duration("c", 0, "Interval for CPU waste")
+	FlagCpuPercentage = flag.Int("cp", 0, "Percentage for CPU waste")
+	FlagMemory        = flag.Int("m", 0, "GiB of memory waste")
+	FlagNetwork       = flag.Duration("n", 0, "Interval for network speed test")
 )
 
 func main() {
@@ -36,11 +37,11 @@ func main() {
 		fmt.Println("====================")
 	}
 
-	if *FlagCPU != 0 {
+	if *FlagCpuPercentage != 0 {
 		nothingEnabled = false
 		fmt.Println("====================")
-		fmt.Println("Starting CPU wasting with interval", *FlagCPU)
-		go waste.CPU(*FlagCPU)
+		fmt.Println("Starting CPU wasting with Percentage", *FlagCpuPercentage)
+		go waste.RunCPULoadForever(*FlagCpuPercentage)
 		runtime.Gosched()
 		fmt.Println("====================")
 	}

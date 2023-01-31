@@ -17,7 +17,7 @@ RUN set -ex \
     && apk add git build-base bash
 RUN chmod 777 ./build.sh \
     && ./build.sh \
-    && mv ./build/app-* /go/bin/app
+    && mv ./build/NeverIdle-* /go/bin/NeverIdle
 
 # multi-stage builds to create the final image
 FROM alpine AS dist
@@ -37,8 +37,13 @@ RUN if [ ! -e /etc/nsswitch.conf ]; then echo 'hosts: files dns' > /etc/nsswitch
 RUN set -ex \
     && apk upgrade \
     && apk add bash tzdata ca-certificates \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo 'Asia/Shanghai' >/etc/timezone
 
-COPY --from=builder /go/bin/app /usr/local/bin/NeverIdle
+# 设置编码
+ENV LANG C.UTF-8
+
+COPY --from=builder /go/bin/NeverIdle /usr/local/bin/NeverIdle
 
 ENTRYPOINT ["NeverIdle"]

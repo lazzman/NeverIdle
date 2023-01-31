@@ -96,7 +96,7 @@ build_for_platform() {
         return 1
     fi
     echo "Building $GOOS/$GOARCH"
-    local output="build/app-$GOOS-$GOARCH"
+    local output="build/NeverIdle-$GOOS-$GOARCH"
     if [[ "$GOOS" = "windows" ]]; then
         output="$output.exe"
     fi
