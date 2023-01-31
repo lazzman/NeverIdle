@@ -128,7 +128,7 @@ function menu() {
 |**********    Author: lazzman   **********|
 |**********     Version: $(echoColor red "${latest_version}")    **********|
  -------------------------------------------
-Tips:$(echoColor green "./NeverIdle")命令再次运行本脚本.
+Tips:$(echoColor green "./NeverIdle.sh")命令再次运行本脚本.
 $(echoColor skyBlue ".............................................")
 $(echoColor purple "###############################")
 
