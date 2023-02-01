@@ -4,13 +4,13 @@
 
 本程序随手写的，下面介绍也是随心写的，不喜勿碰。
 
-## 一键脚本 One click to go
+## 一键脚本【小白推荐】
 
 ```shell
 wget -O NeverIdle.sh "https://raw.githubusercontents.com/lazzman/NeverIdle/master/NeverIdle.sh" && chmod +x NeverIdle.sh && ./NeverIdle.sh
 ```
 
-ORACLE AMD 只有 1G 内存，所以内存参数不会生效。
+> ORACLE AMD 只有 1G 内存，所以内存参数不会生效。
 
 ## Usage
 
@@ -21,12 +21,15 @@ ORACLE AMD 只有 1G 内存，所以内存参数不会生效。
 命令参数：
 
 ```shell
-./NeverIdle -cp 25 -m 2 -n 1h
+./NeverIdle -cc 2 -cp 25 -m 2 -n 1h
 ```
 
 其中：
 
--cp 指启用全核心 CPU 使用率，0-100。  
+-cc 指浪费的 CPU 核心数。
+配合`-cp`指令使用，默认为全核心数。
+
+-cp 指浪费的核心 CPU 使用率，0-100。  
 如控制CPU使用率为33%，则为 33。按照格式填。
 
 -m 指启用浪费的内存量，后面是一个数字，单位为 GiB。  

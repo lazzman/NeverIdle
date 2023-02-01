@@ -8,9 +8,9 @@ import (
 const maxInt32 = 2147483647
 const unLimitedTime = maxInt32
 
-// RunCPULoadForever forever run CPU load in all cores count and percentage
-func RunCPULoadForever(percentage int) {
-	RunCPULoad(runtime.NumCPU(), unLimitedTime, percentage)
+// RunCPULoadForever forever run CPU load in specify cores count and percentage
+func RunCPULoadForever(coresCount int, percentage int) {
+	RunCPULoad(coresCount, unLimitedTime, percentage)
 }
 
 // RunCPULoad run CPU load in specify cores count and percentage
